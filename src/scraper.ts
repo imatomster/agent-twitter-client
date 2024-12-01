@@ -25,7 +25,8 @@ import {
   fetchProfileFollowers,
   getFollowing,
   getFollowers,
-  followUser
+  followUser,
+  unfollowUser
 } from './relationships';
 import { QueryProfilesResponse, QueryTweetsResponse } from './timeline-v1';
 import { getTrends } from './trends';
@@ -786,9 +787,21 @@ export class Scraper {
    * @param userId The user ID of the user to follow.
    * @returns A promise that resolves when the user is followed.
    */
-  public async followUser(userName: string): Promise<void> {
+  public async followUser(userName: string): Promise<Response> {
     // Call the followUser function from relationships.ts
-    await followUser(userName, this.auth);
+    const res = await followUser(userName, this.auth);
+    return res;
+  }
+
+  /**
+   * Unfollows a user with the given user ID.
+   * @param userId The user ID of the user to follow.
+   * @returns A promise that resolves when the user is followed.
+   */
+  public async unfollowUser(userName: string): Promise<Response> {
+    // Call the followUser function from relationships.ts
+    const res = await unfollowUser(userName, this.auth);
+    return res;
   }
 
   private getAuthOptions(): Partial<TwitterAuthOptions> {

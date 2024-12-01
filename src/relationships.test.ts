@@ -57,3 +57,20 @@ test('scraper can get profile following', async () => {
 
   expect(nProfiles).toEqual(maxProfiles);
 });
+
+test('scraper can follow and unfollow account', async () => {
+  const scraper = await getScraper();
+
+  const targetUser = 'JezzaF87';
+
+  // const profile = await scraper.getProfile(targetId);
+  // expect(profile).toBeTruthy();
+  // expect(profile?.userId).toEqual(targetId);
+  // expect(profile?.username).toEqual(targetUsername);
+
+  // const res = await scraper.followUser(targetUser);
+  // console.log(res);
+
+  const res2 = await scraper.unfollowUser(targetUser);
+  console.log(res2);
+});
