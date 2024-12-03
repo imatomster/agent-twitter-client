@@ -23,8 +23,7 @@
     "docs:generate": "typedoc --options typedoc.json",
     "docs:deploy": "npm run docs:generate && gh-pages -d docs",
     "format": "prettier --write src/**/*.ts",
-    "test": "jest",
-    "prepare": "npm run build"
+    "test": "jest"
   },
   "dependencies": {
     "@sinclair/typebox": "^0.32.20",
